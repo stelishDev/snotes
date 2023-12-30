@@ -46,8 +46,29 @@ export default function TabLayout() {
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: '',
+          tabBarStyle: { display: 'none' },
+          tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
+          tabBarLabel: 'Tab Two',
+          headerTransparent: false,
+          headerStyle: {
+            backgroundColor: 'transparent',
+            borderColor: 'transparent',
+          },
+          headerLeft: () => (
+            <Link href="/modal" asChild>
+              <Pressable>
+                {({ pressed }) => (
+                  <FontAwesome
+                    name="arrow-left"
+                    size={25}
+                    color={Colors[colorScheme ?? 'light'].text}
+                    style={{ marginLeft: 15, opacity: pressed ? 0.5 : 1 }}
+                  />
+                )}
+              </Pressable>
+            </Link>
+          ),
         }}
       />
     </Tabs>
